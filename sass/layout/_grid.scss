@@ -4,15 +4,34 @@
 
     &:not(:last-child){
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port){ // menor que 900
+            margin-bottom: $gutter-vertical-small;
+        }
+        
+    }
+
+    @include respond(tab-port){ 
+        max-width: 50rem;
+        padding: 0 3rem;
     }
 
     @include clearfix;
-
+    
     [class^="col-"] {
         float: left;
 
         &:not(:last-child){
             margin-right: $gutter-horizontal;
+
+            @include respond(tab-port){ // menor que 900
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(tab-port){ // menor que 900
+            width: 100% !important;
         }
     }
 
